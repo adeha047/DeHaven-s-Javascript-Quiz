@@ -22,12 +22,14 @@ body {
     background-color: hsl(var(--hue), 100%, 20%);
 }
 
-.timer {
+.timer, .high-scorer {
     padding: 25px;
     color:white;
     font-size: 50px;
 
 }
+
+
 
 .container {
     width: 1100px;

@@ -94,8 +94,8 @@ function selectAnswer(event) {
     if (shuffledQuestions.length > currentQuestionsIndex + 1) {
         nextButton.classList.remove("hide");
     } else {
-        startButton.innerText = "Show High Score";
-        highScore.innerText = "Your High Score is" + CountScore; 
+        startButton.innerText = "GAME OVER: Try Again";
+        highScore.innerText = "Your High Score is " + CountScore; 
         startButton.classList.remove("hide")
         timeEl.classList.add("hide")
         questionContainerEl.classList.add("hide");
@@ -182,6 +182,17 @@ var questions = [
             { text: "Lance Armstrong", correct: false },
             { text: "Tadej Pogacar", correct: true },
             { text: "Egan Bernal", correct: false },
+        ]
+
+    },
+
+    {
+        question: "What year was the longest Tour de France?",
+        answers: [
+            { text: "1904", correct: false },
+            { text: "2004", correct: false },
+            { text: "2019", correct: false},
+            { text: "1926", correct: true },
         ]
 
     }
