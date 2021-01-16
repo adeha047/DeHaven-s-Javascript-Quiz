@@ -7,12 +7,17 @@ var ansButtonsEl = document.querySelector("#answer-buttons");
 var timeEl = document.querySelector("#time")
 var controls = document.querySelector("#controls")
 
+//my list of varibles that I grabbed from the html
+
 var shuffledQuestions;
 var currentQuestionsIndex;
+
+//variables used for randomizing my questions and creating the start of the questions
 
 var highScores = JSON.parse(localStorage.getItem("CountScore")) || [];
 console.log(highScores)
 
+//local storage for accounting for the high scores
 
 var CountScore = 0; 
 
@@ -35,6 +40,8 @@ function startGame() {
     setNextQuestion();
     setTime();
 
+    //I added the function to loop through the questions and hide the start after initially clicked. 
+
 
 
 }
@@ -47,11 +54,13 @@ function setTime() {
         timeEl.textContent = secondsLeft + " seconds left till Game Over.";
 
 
+
         if (secondsLeft === 0) {
 
             clearInterval(timerInterval);
             timeEl.classList.add("hide")
         }
+        //clears interval and clears the timer itself
 
     }, 1000);
 }
@@ -103,6 +112,8 @@ function selectAnswer(event) {
         
 
         localStorage.setItem("CountScore", JSON.stringify(highScores));
+
+        
     };
 
     if (selectedButton.dataset = correct) {
