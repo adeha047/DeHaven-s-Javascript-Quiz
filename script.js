@@ -64,13 +64,13 @@ function setTime() {
 
     }, 1000);
 }
-
+// Shows questions 
 function setNextQuestion() {
     resetState()
     showQuestion(shuffledQuestions[currentQuestionsIndex]);
 
 }
-
+// This will add the questions to the page
 function showQuestion(question) {
     questionEl.innerText = question.question;
     question.answers.forEach(answer => {
@@ -84,7 +84,7 @@ function showQuestion(question) {
         ansButtonsEl.appendChild(button);
     });
 }
-
+//added a reset to add the questions after the Start button is clicked 
 function resetState() {
     nextButton.classList.add("hide");
     while (ansButtonsEl.firstChild) {
@@ -92,7 +92,7 @@ function resetState() {
 
     };
 }
-
+//added an answer function to account for answers clicked in the questions 
 function selectAnswer(event) {
     var selectedButton = event.target;
     var correct = selectedButton.dataset.correct;
@@ -100,17 +100,19 @@ function selectAnswer(event) {
     Array.from(ansButtonsEl.children).forEach(button => {
         setStatusClass(button, button.dataset.correct)
     });
+    // added an if statement to account for questions 
     if (shuffledQuestions.length > currentQuestionsIndex + 1) {
         nextButton.classList.remove("hide");
     } else {
-        startButton.innerText = "GAME OVER: Try Again";
+        startButton.innerText = "GAME OVER: Please Reload Page to Try Again";
         highScore.innerText = "Your High Score is " + CountScore; 
         startButton.classList.remove("hide")
         timeEl.classList.add("hide")
         questionContainerEl.classList.add("hide");
         highScores.push(CountScore);
         
-
+        
+        // local storage to add the high scores 
         localStorage.setItem("CountScore", JSON.stringify(highScores));
 
         
@@ -126,7 +128,7 @@ function selectAnswer(event) {
 
 
 }
-
+// accounts for correct and incorrect answers
 function setStatusClass(element, correct) {
     clearStatusClass(element);
     if (correct) {
@@ -143,6 +145,7 @@ function clearStatusClass(element) {
     element.classList.remove("wrong");
 }
 
+//array of questions 
 var questions = [
     {
         question: "How long was this year's Tour de France?",
