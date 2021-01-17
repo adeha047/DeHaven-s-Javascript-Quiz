@@ -8,3 +8,4 @@ I then created text to display the score received by the user.
 I created a timer to begin once the Start button is clicked. 
 It will disappear once it ticks down to 0 
 It will also disappear if the game ends before the clock ticks down. 
+https://adeha047.github.io/DeHaven-s-Javascript-Quiz/
